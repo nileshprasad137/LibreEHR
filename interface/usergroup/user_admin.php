@@ -354,12 +354,12 @@ function authorized_clicked() {
 <br>
 <FORM NAME="user_form" METHOD="POST" ACTION="usergroup_admin.php" target="_parent" onsubmit='return top.restoreSession()'>
 
-<input type=hidden name="pwd_expires" value="<?php echo $GLOBALS['password_expiration_days']; ?>" >
-<input type=hidden name="pre_active" value="<?php echo $iter["active"]; ?>" >
-<input type=hidden name="exp_date" value="<?php echo $iter["pwd_expiration_date"]; ?>" >
-<input type=hidden name="get_admin_id" value="<?php echo $GLOBALS['Emergency_Login_email']; ?>" >
-<input type=hidden name="admin_id" value="<?php echo $GLOBALS['Emergency_Login_email_id']; ?>" >
-<input type=hidden name="check_acl" value="">
+<input type="hidden" name="pwd_expires" value="<?php echo $GLOBALS['password_expiration_days']; ?>" >
+<input type="hidden" name="pre_active" value="<?php echo $iter["active"]; ?>" >
+<input type="hidden" name="exp_date" value="<?php echo $iter["pwd_expiration_date"]; ?>" >
+<input type="hidden" name="get_admin_id" value="<?php echo $GLOBALS['Emergency_Login_email']; ?>" >
+<input type="hidden" name="admin_id" value="<?php echo $GLOBALS['Emergency_Login_email_id']; ?>" >
+<input type="hidden" name="check_acl" value="">
 <?php 
 //Calculating the grace time 
 $current_date = date("Y-m-d");
@@ -369,8 +369,8 @@ if($password_exp != "0000-00-00")
     $grace_time1 = date("Y-m-d", strtotime($password_exp . "+".$GLOBALS['password_grace_time'] ."days"));
   }
 ?>
-<input type=hidden name="current_date" value="<?php echo strtotime($current_date); ?>" >
-<input type=hidden name="grace_time" value="<?php echo strtotime($grace_time1); ?>" >
+<input type="hidden" name="current_date" value="<?php echo strtotime($current_date); ?>" >
+<input type="hidden" name="grace_time" value="<?php echo strtotime($grace_time1); ?>" >
 <!--  Get the list ACL for the user -->
 <?php
 $acl_name=acl_get_group_titles($iter["username"]);
@@ -381,7 +381,7 @@ $bg_count=count($acl_name);
        $bg_name=$acl_name[$i];
       }
 ?>
-<input type=hidden name="user_type" value="<?php echo $bg_name; ?>" >
+<input type="hidden" name="user_type" value="<?php echo $bg_name; ?>" >
 
 <table class="table">
 <TR>
@@ -391,16 +391,16 @@ $bg_count=count($acl_name);
     <TD class='text' style="width:280px;"><input type='password' name="adminPass" style="width:150px;"  value="" autocomplete='off'><font class="mandatory">*</font></TD>
 </TR>
 <TR>
-    <TD style="width:180px;"><span class=text></span></TD>
+    <TD style="width:180px;"><span class="text"></span></TD>
     <TD style="width:270px;"></td>
-    <TD style="width:200px;"><span class=text><?php echo xlt('User\'s New Pass Phrase'); ?>: </span></TD>
-    <TD class='text' style="width:280px;">    <input type=entry name=clearPass style="width:150px;"  value=""><font class="mandatory">*</font></td>
+    <TD style="width:200px;"><span class="text"><?php echo xlt('User\'s New Pass Phrase'); ?>: </span></TD>
+    <TD class='text' style="width:280px;">    <input type="entry" name="clearPass" style="width:150px;"  value=""><font class="mandatory">*</font></td>
 </TR>
 
 
 <TR height="30" style="valign:middle;">
 <td><span class="text">&nbsp;</span></td><td>&nbsp;</td>
-<td colspan="2"><span class=text><?php echo xlt('Provider'); ?>:
+<td colspan="2"><span class="text"><?php echo xlt('Provider'); ?>:
  <input type="checkbox" name="authorized" onclick="authorized_clicked()"<?php
   if ($iter["authorized"]) echo " checked"; ?> />
  &nbsp;&nbsp;<span class='text'><?php echo xlt('Calendar'); ?>:
@@ -413,14 +413,14 @@ $bg_count=count($acl_name);
 </TR>
 
 <TR>
-<TD><span class=text><?php echo xlt('First Name'); ?>: </span></TD>
-<TD><input type=entry name=fname id=fname style="width:150px;" value="<?php echo $iter["fname"]; ?>"><span class="mandatory">&nbsp;*</span></td>
-<td><span class=text><?php echo xlt('Middle Name'); ?>: </span></TD><td><input type=entry name=mname style="width:150px;"  value="<?php echo $iter["mname"]; ?>"></td>
+<TD><span class="text"><?php echo xlt('First Name'); ?>: </span></TD>
+<TD><input type="entry" name="fname" id="fname" style="width:150px;" value="<?php echo $iter["fname"]; ?>"><span class="mandatory">&nbsp;*</span></td>
+<td><span class="text"><?php echo xlt('Middle Name'); ?>: </span></TD><td><input type="entry" name="mname" style="width:150px;"  value="<?php echo $iter["mname"]; ?>"></td>
 </TR>
 
 <TR>
-<td><span class=text><?php echo xlt('Last Name'); ?>: </span></td><td><input type=entry name=lname id=lname style="width:150px;"  value="<?php echo $iter["lname"]; ?>"><span class="mandatory">&nbsp;*</span></td>
-<td><span class=text><?php echo xlt('Default Facility'); ?>: </span></td><td><select name=facility_id style="width:150px;" >
+<td><span class="text"><?php echo xlt('Last Name'); ?>: </span></td><td><input type="entry" name="lname" id="lname" style="width:150px;"  value="<?php echo $iter["lname"]; ?>"><span class="mandatory">&nbsp;*</span></td>
+<td><span class="text"><?php echo xlt('Default Facility'); ?>: </span></td><td><select name="facility_id" style="width:150px;" >
 <?php
 $fres = sqlStatement("select * from facility where service_location != 0 order by name");
 if ($fres) {
@@ -437,9 +437,9 @@ foreach($result as $iter2) {
 </tr>
 
 <tr>
-<td><span class=text><?php echo xlt('Suffix'); ?>: </span></td><td><input type=entry name=suffix id=suffix style="width:150px;"  title ="<?php echo xla("Please Change this Information in the Address Book"); ?>" value="<?php echo $iter["suffix"]; ?>" readonly> </td>
+<td><span class="text"><?php echo xlt('Suffix'); ?>: </span></td><td><input type="entry" name=suffix id=suffix style="width:150px;"  title ="<?php echo xla("Please Change this Information in the Address Book"); ?>" value="<?php echo $iter["suffix"]; ?>" readonly> </td>
 
- <td><span class=text><?php echo xlt('Schedule Facilities:');?></td>
+ <td><span class="text"><?php echo xlt('Schedule Facilities:');?></td>
  <td>
   <select name="schedule_facility[]" multiple style="width:150px;" >
 <?php
@@ -462,8 +462,8 @@ foreach($result as $iter2) {
 </tr>
 
 <TR>
-<TD><span class=text><?php echo xlt('Federal Tax ID'); ?>: </span></TD><TD><input type=entry name=taxid style="width:150px;"  value="<?php echo $iter["federaltaxid"]?>"></td>
-<TD><span class=text><?php echo xlt('DEA Number'); ?>: </span></TD><TD><input type=entry name=drugid style="width:150px;"  value="<?php echo $iter["federaldrugid"]?>"></td>
+<TD><span class="text"><?php echo xlt('Federal Tax ID'); ?>: </span></TD><TD><input type="entry" name=taxid style="width:150px;"  value="<?php echo $iter["federaltaxid"]?>"></td>
+<TD><span class="text"><?php echo xlt('DEA Number'); ?>: </span></TD><TD><input type="entry" name=drugid style="width:150px;"  value="<?php echo $iter["federaldrugid"]?>"></td>
 </TR>
 
 <tr>
@@ -556,8 +556,8 @@ echo generate_select_list('irnpool', 'irnpool', $iter['irnpool'],
    }
   ?>
   </select></td>
-  <td><span class=text><?php echo xlt('Additional Info'); ?>:</span></td>
-  <td><textarea style="width:150px;" name="comments" wrap=auto rows=4 cols=25><?php echo $iter["info"];?></textarea></td>
+  <td><span class="text"><?php echo xlt('Additional Info'); ?>:</span></td>
+  <td><textarea style="width:150px;" name="comments" wrap="auto" rows="4" cols="25"><?php echo $iter["info"];?></textarea></td>
 
   <?php do_action( 'usergroup_admin_edit', $iter ); ?>
 

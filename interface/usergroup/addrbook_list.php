@@ -190,6 +190,7 @@ $res = sqlStatement($query,$sqlBindArray);
  }
 ?>
 </table>
+<hr>
 <div style="display: none;">
   <a class="iframe addrbookedit_modal"></a>
 </div>
