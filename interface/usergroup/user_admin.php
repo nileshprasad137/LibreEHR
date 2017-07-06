@@ -40,6 +40,7 @@ require_once("$srcdir/formdata.inc.php");
 require_once("$srcdir/calendar.inc");
 require_once("$srcdir/options.inc.php");
 require_once("$srcdir/erx_javascript.inc.php");
+require_once("$srcdir/headers.inc.php");
 
 if (!$_GET["id"] || !acl_check('admin', 'users'))
   exit();
@@ -200,8 +201,6 @@ parent.$.fn.fancybox.close();
 <html>
 <head>
 
-<link rel="stylesheet" href="<?php echo $css_header; ?>" type="text/css">
-<script type="text/javascript" src="../../library/dialog.js"></script>
 <script type="text/javascript" src="../../library/js/jquery.1.3.2.js"></script>
 <script type="text/javascript" src="../../library/js/common.js"></script>
 
@@ -384,12 +383,12 @@ $bg_count=count($acl_name);
 ?>
 <input type=hidden name="user_type" value="<?php echo $bg_name; ?>" >
 
-<TABLE border=0 cellpadding=0 cellspacing=0>
+<table class="table">
 <TR>
-    <TD style="width:180px;"><span class=text><?php echo xlt('Username'); ?>: </span></TD>
-    <TD style="width:270px;"><input type=entry name=username style="width:150px;" value="<?php echo $iter["username"]; ?>" disabled></td>
-    <TD style="width:200px;"><span class=text><?php echo xlt('Your Pass Phrase'); ?>: </span></TD>
-    <TD class='text' style="width:280px;"><input type='password' name=adminPass style="width:150px;"  value="" autocomplete='off'><font class="mandatory">*</font></TD>
+    <TD style="width:180px;"><span class="text"><?php echo xlt('Username'); ?>: </span></TD>
+    <TD style="width:270px;"><input type="entry" name="username" style="width:150px;" value="<?php echo $iter["username"]; ?>" disabled></td>
+    <TD style="width:200px;"><span class="text"><?php echo xlt('Your Pass Phrase'); ?>: </span></TD>
+    <TD class='text' style="width:280px;"><input type='password' name="adminPass" style="width:150px;"  value="" autocomplete='off'><font class="mandatory">*</font></TD>
 </TR>
 <TR>
     <TD style="width:180px;"><span class=text></span></TD>

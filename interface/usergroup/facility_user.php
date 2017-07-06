@@ -33,6 +33,7 @@ $fake_register_globals=false;
 
 
 require_once("../globals.php");
+require_once("$srcdir/headers.inc.php");
 require_once("$srcdir/sql.inc");
 require_once("$srcdir/formdata.inc.php");
 require_once("$srcdir/options.inc.php");
@@ -67,9 +68,7 @@ if ( isset($_POST["mode"]) && $_POST["mode"] == "facility_user_id" && isset($_PO
 ?>
 <html>
 <head>
-<link rel="stylesheet" href="<?php echo $css_header;?>" type="text/css">
 <link rel="stylesheet" type="text/css" href="<?php echo $GLOBALS['webroot'] ?>/library/js/fancybox/jquery.fancybox-1.2.6.css" media="screen" />
-<script type="text/javascript" src="<?php echo $GLOBALS['webroot'] ?>/library/dialog.js"></script>
 <script type="text/javascript" src="<?php echo $GLOBALS['webroot'] ?>/library/js/jquery.1.3.2.js"></script>
 <script type="text/javascript" src="<?php echo $GLOBALS['webroot'] ?>/library/js/common.js"></script>
 <script type="text/javascript" src="<?php echo $GLOBALS['webroot'] ?>/library/js/fancybox/jquery.fancybox-1.2.6.js"></script>
@@ -138,7 +137,7 @@ for($i=0; $row=sqlFetchArray($l_res); $i++) {
 	<div style="width:400px;">
 		<div>
 
-			<table cellpadding="1" cellspacing="0" class="showborder">
+			<table class="table table-hover" cellpadding="1" cellspacing="0" class="showborder">
 				<tbody><tr height="22" class="showborder_head">
 					<th width="180px"><b><?php echo xlt('Username'); ?></b></th>
 					<th width="270px"><b><?php echo xlt('Full Name'); ?></b></th>

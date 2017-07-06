@@ -40,6 +40,7 @@ require_once("$srcdir/sql.inc");
 require_once("$srcdir/formdata.inc.php");
 require_once("$srcdir/options.inc.php");
 require_once("$srcdir/erx_javascript.inc.php");
+require_once("$srcdir/headers.inc.php");
 
 $alertmsg = '';
 
@@ -47,10 +48,7 @@ $alertmsg = '';
 <html>
 <head>
 
-<link rel="stylesheet" href="<?php echo $css_header;?>" type="text/css">
-<link rel="stylesheet" href="<?php echo $css_header;?>" type="text/css">
 <link rel="stylesheet" type="text/css" href="<?php echo $GLOBALS['webroot'] ?>/library/js/fancybox/jquery.fancybox-1.2.6.css" media="screen" />
-<script type="text/javascript" src="<?php echo $GLOBALS['webroot'] ?>/library/dialog.js"></script>
 <script type="text/javascript" src="<?php echo $GLOBALS['webroot'] ?>/library/js/jquery.1.3.2.js"></script>
 <script type="text/javascript" src="<?php echo $GLOBALS['webroot'] ?>/library/js/common.js"></script>
 <script type="text/javascript" src="<?php echo $GLOBALS['webroot'] ?>/library/js/fancybox/jquery.fancybox-1.2.6.js"></script>
@@ -190,7 +188,7 @@ function authorized_clicked() {
 </td></tr></table>
 <br><br>
 
-<table border=0>
+<table border="0">
 
 <tr><td valign=top>
 <form name='new_user' method='post'  target="_parent" action="usergroup_admin.php"
@@ -200,7 +198,7 @@ function authorized_clicked() {
 
 <span class="bold">&nbsp;</span>
 </td><td>
-<table border=0 cellpadding=0 cellspacing=0 style="width:600px;">
+<table class="table" border=0 cellpadding=0 cellspacing=0 style="width:600px;">
 <tr>
 <td style="width:150px;"><span class="text"><?php echo xlt('Username'); ?>: </span></td><td  style="width:220px;"><input type=entry name=rumple style="width:120px;"> <span class="mandatory">&nbsp;*</span></td>
 <td style="width:150px;"><span class="text"><?php echo xlt('Pass Phrase'); ?>: </span></td><td style="width:250px;"><input type="entry" style="width:120px;" name=stiltskin><span class="mandatory">&nbsp;*</span></td>

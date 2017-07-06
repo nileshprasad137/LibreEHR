@@ -38,14 +38,13 @@ require_once("$srcdir/formdata.inc.php");
 require_once("$srcdir/classes/POSRef.class.php");
 require_once("$srcdir/options.inc.php");
 require_once("$srcdir/erx_javascript.inc.php");
+require_once("$srcdir/headers.inc.php");
 
 $alertmsg = '';
 ?>
 <html>
 <head>
-<link rel="stylesheet" href="<?php echo $css_header;?>" type="text/css">
 <link rel="stylesheet" type="text/css" href="<?php echo $GLOBALS['webroot'] ?>/library/js/fancybox/jquery.fancybox-1.2.6.css" media="screen" />
-<script type="text/javascript" src="<?php echo $GLOBALS['webroot'] ?>/library/dialog.js"></script>
 <script type="text/javascript" src="<?php echo $GLOBALS['webroot'] ?>/library/js/jquery.1.3.2.js"></script>
 <script type="text/javascript" src="<?php echo $GLOBALS['webroot'] ?>/library/js/common.js"></script>
 <script type="text/javascript" src="<?php echo $GLOBALS['webroot'] ?>/library/js/fancybox/jquery.fancybox-1.2.6.js"></script>
@@ -148,7 +147,7 @@ $(document).ready(function(){
         'overlayOpacity' : 0.0,
         'showCloseButton' : true,
         'frameHeight' : 600,
-        'frameWidth' : 1000
+        'frameWidth' : 1000        
     });
 
     // special size for
@@ -185,8 +184,6 @@ function displayAlert()
     alert("<?php echo addslashes(xl('Once the Primary Business Facility is set, it should not be changed. Changing the facility will affect the working in NewCrop ePrescription.'));?>");
 }
 </script>
-<link rel="stylesheet" href="<?php echo $css_header;?>" type="text/css">
-
 </head>
 <body class="body_top">
 <table>
@@ -206,37 +203,39 @@ function displayAlert()
 
 <form name='facility' method='post' action="facilities.php" target='_parent'>
     <input type=hidden name=mode value="facility">
-    <table border=0 cellpadding=0 cellspacing=0>
+    <div class="table-responsive">
+    <table class="table table-hover">
         <tr>
-        <td><span class="text"><?php echo xlt('Name'); ?>: </span></td><td><input type=entry name=facility size=20 value=""><span class="mandatory">&nbsp;*</span></td>
+        <td><span class="text"><?php echo xlt('Name'); ?>: </span></td>
+        <td><input type=entry class='form-control form-rounded' class='form-control form-rounded' name=facility size=20 value=""><span class="mandatory">&nbsp;*</span></td>
         <td width=20>&nbsp;</td>
-        <td><span class="text"><?php echo xlt('Phone'); ?>: </span></td><td><input type=entry name=phone size=20 value=""></td>
+        <td><span class="text"><?php echo xlt('Phone'); ?>: </span></td><td><input type=entry class='form-control form-rounded' name=phone size=20 value=""></td>
         </tr>
         <tr>
-        <td><span class="text"><?php echo xlt('Address'); ?>: </span></td><td><input type=entry size=20 name=street value=""></td>
+        <td><span class="text"><?php echo xlt('Address'); ?>: </span></td><td><input type=entry class='form-control form-rounded' size=20 name=street value=""></td>
         <td>&nbsp;</td>
-        <td><span class="text"><?php echo xlt('Fax'); ?>: </span></td><td><input type=entry name=fax size=20 value=""></td>
+        <td><span class="text"><?php echo xlt('Fax'); ?>: </span></td><td><input type=entry class='form-control form-rounded' name=fax size=20 value=""></td>
         </tr>
         <tr>
-        <td><span class="text"><?php echo xlt('City'); ?>: </span></td><td><input type=entry size=20 name=city value=""></td>
+        <td><span class="text"><?php echo xlt('City'); ?>: </span></td><td><input type=entry class='form-control form-rounded' size=20 name=city value=""></td>
         <td>&nbsp;</td>
-        <td><span class="text"><?php echo xlt('Zip Code'); ?>: </span></td><td><input type=entry size=20 name=postal_code value=""></td>
+        <td><span class="text"><?php echo xlt('Zip Code'); ?>: </span></td><td><input type=entry class='form-control form-rounded' size=20 name=postal_code value=""></td>
         </tr>
         <tr>
-        <td><span class="text"><?php echo xlt('State'); ?>: </span></td><td><input type=entry size=20 name=state value=""></td>
+        <td><span class="text"><?php echo xlt('State'); ?>: </span></td><td><input type=entry class='form-control form-rounded' size=20 name=state value=""></td>
         <td>&nbsp;</td>
-        <td><span class="text"><?php echo xlt('Tax ID'); ?>: </span></td><td><select name=tax_id_type><option value="EI"><?php echo xlt('EIN'); ?></option><option value="SY"><?php echo xlt('SSN'); ?></option></select><input type=entry size=11 name=federal_ein value=""></td>
+        <td><span class="text"><?php echo xlt('Tax ID'); ?>: </span></td><td><select name=tax_id_type class="form-control"><option value="EI"><?php echo xlt('EIN'); ?></option><option value="SY"><?php echo xlt('SSN'); ?></option></select><input type=entry class='form-control form-rounded' size=11 name=federal_ein value=""></td>
         </tr>
         <tr>
-        <td height="22"><span class="text"><?php echo xlt('Country'); ?>: </span></td><td><input type=entry size=20 name=country_code value=""></td>
+        <td height="22"><span class="text"><?php echo xlt('Country'); ?>: </span></td><td><input type=entry class='form-control form-rounded' size=20 name=country_code value=""></td>
         <td>&nbsp;</td>
         <td><span class="text"><?php if($GLOBALS['simplified_demographics']) {  echo xlt('Facility Code'); } else { echo xlt('Facility NPI'); }; ?>:
-        </span></td><td><input type=entry size=20 name=facility_npi value=""></td>
+        </span></td><td><input type=entry class='form-control form-rounded' size=20 name=facility_npi value=""></td>
         </tr>
         <tr>
-        <td><span class="text"><?php echo xlt('Website'); ?>: </span></td><td><input type=entry size=20 name=website value=""></td>
+        <td><span class="text"><?php echo xlt('Website'); ?>: </span></td><td><input type=entry class='form-control form-rounded' size=20 name=website value=""></td>
         <td>&nbsp;</td>
-        <td><span class="text"><?php echo xlt('Email'); ?>: </span></td><td><input type=entry size=20 name=email value=""></td>
+        <td><span class="text"><?php echo xlt('Email'); ?>: </span></td><td><input type=entry class='form-control form-rounded' size=20 name=email value=""></td>
         </tr>
 
         <tr>
@@ -247,7 +246,7 @@ function displayAlert()
         <tr>
           <td><span class='text'><?php echo xlt('Service Location'); ?>: </span></td> <td><input type='checkbox' name='service_location' value = '1'></td>
           <td>&nbsp;</td>
-          <td><span class='text'><?php echo xlt('Color'); ?>: </span><span class="mandatory">&nbsp;*</span></td> <td><input type=entry name=ncolor id=ncolor size=20 value="">[<a href="javascript:void(0);" onClick="pick('pick','newcolor');return false;" NAME="pick" ID="pick"><?php echo xlt('Pick'); ?></a>]</td>
+          <td><span class='text'><?php echo xlt('Color'); ?>: </span><span class="mandatory">&nbsp;*</span></td> <td><input type=entry class='form-control form-rounded' name=ncolor id=ncolor size=20 value="">[<a href="javascript:void(0);" onClick="pick('pick','newcolor');return false;" NAME="pick" ID="pick"><?php echo xlt('Pick'); ?></a>]</td>
         </tr>
     <?php
      $disabled='';
@@ -255,15 +254,15 @@ function displayAlert()
      if(sqlNumRows($resPBE)>0)
      $disabled='disabled';
      ?>
-     <tr>
+        <tr>
           <td><span class='text'><?php echo xlt('Primary Business Entity'); ?>: </span></td>
           <td><input type='checkbox' name='primary_business_entity' id='primary_business_entity' value='1' <?php if ($facility['primary_business_entity'] == 1) echo 'checked'; ?> <?php if($GLOBALS['erx_enable']){ ?> onchange='return displayAlert()' <?php } ?> <?php echo $disabled;?>></td>
           <td>&nbsp;</td>
-         </tr>
+        </tr>
         <tr>
             <td><span class=text><?php echo xlt('POS Code'); ?>: </span></td>
             <td colspan="6">
-                <select name="pos_code">
+                <select name="pos_code" class="form-control">
                 <?php
                 $pc = new POSRef();
 
@@ -279,11 +278,11 @@ function displayAlert()
         </tr>
         <tr>
             <td><span class="text"><?php echo xlt('Billing Attn'); ?>:</span></td>
-            <td colspan="4"><input type="text" name="attn" size="45"></td>
+            <td colspan="4"><input type="text" class='form-control form-rounded' name="attn" size="45"></td>
         </tr>
         <tr>
             <td><span class="text"><?php echo xlt('CLIA Number'); ?>:</span></td>
-            <td colspan="4"><input type="text" name="domain_identifier" size="45"></td>
+            <td colspan="4"><input type="text" class='form-control form-rounded' name="domain_identifier" size="45"></td>
         </tr>
 
         <tr height="25" style="valign:bottom;">
@@ -291,6 +290,7 @@ function displayAlert()
         <td>&nbsp;</td><td>&nbsp;</td>
         </tr>
     </table>
+    </div>
 </form>
 
 <script language="JavaScript">

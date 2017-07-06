@@ -41,6 +41,7 @@
  require_once("$srcdir/options.inc.php");
  require_once("$srcdir/formdata.inc.php");
  require_once("$srcdir/htmlspecialchars.inc.php");
+ require_once("$srcdir/headers.inc.php"); 
 
  // Collect user id if editing entry
  $userid = $_REQUEST['userid'];
@@ -296,8 +297,8 @@ td { font-size:10pt; }
 
 <form method='post' name='theform' action='addrbook_edit.php?userid=<?php echo attr($userid) ?>'>
 <center>
-
-<table border='0' width='100%'>
+<div class="table-responsive">
+<table class="table" border='0' width='100%'>
 
 <?php if (acl_check('admin', 'practice' )) { // allow choose type option if have admin access ?>
  <tr>
@@ -515,6 +516,7 @@ td { font-size:10pt; }
  </tr>
 
 </table>
+</div>
 
 <br />
 
