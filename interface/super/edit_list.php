@@ -806,7 +806,7 @@ function mysubmit() {
 <input type="hidden" name="formaction" id="formaction">
 
 <p><b><?php xl('Edit list','e'); ?>:</b>&nbsp;
-<select name='list_id' id="list_id">
+<select class="form-control" name='list_id' id="list_id">
 <?php
 
 // List order depends on language translation options.
@@ -839,13 +839,14 @@ while ($row = sqlFetchArray($res)) {
 
 ?>
 </select>
+<br>
 <input type="button" id="<?php echo $list_id; ?>" class="deletelist" value=<?php xl('Delete List','e','\'','\''); ?>>
 <input type="button" id="newlist" class="newlist" value=<?php xl('New List','e','\'','\''); ?>>
 </p>
 
 <center>
 
-<table cellpadding='2' cellspacing='0'>
+<table class="table">
  <tr class='head'>
 <?php if ($list_id == 'feesheet') { ?>
   <td><b><?php xl('Group'    ,'e'); ?></b></td>

@@ -24,9 +24,10 @@
 require_once(dirname(__FILE__)."/../../../../../../library/acl.inc"); 
 global $phpgacl_location;
 require_once("$phpgacl_location/gacl_api.class.php");
+require_once($GLOBALS['fileroot'] . "/library/headers.inc.php");
 ?>
 
-<table class="header">
+<table class="table">
   <tr>
         <td class="title"><?php echo out( xl('Clinical Decision Rules Alert Manager') ); ?></td>
         
@@ -41,51 +42,47 @@ require_once("$phpgacl_location/gacl_api.class.php");
 &nbsp;
 
 <form name="cdralertmgr" method="post" action="index.php?action=alerts!submitactmgr" onsubmit="return top.restoreSession()">
-<table cellpadding="1" cellspacing="0" class="showborder">
-        <tr class="showborder_head">
-                <th width="250px"><?php echo out( xl('Title') ); ?></th>
-                <th width="40px">&nbsp;</th>
-                <th width="10px"><?php echo out( xl('Active Alert') ); ?></th>
-                <th width="40px">&nbsp;</th>
-                <th width="10px"><?php echo out( xl('Passive Alert') ); ?></th>
-                <th width="40px">&nbsp;</th>
-                <th width="10px"><?php echo out( xl('Patient Reminder') ); ?></th>
-                <th width="40px">&nbsp;</th>
-                <th width="100px"><?php echo out( xl('Access Control') ); ?> <span title='<?php echo out( xl('User is required to have this access control for Active Alerts and Passive Alerts') ); ?>'>?</span></th>
-                <th></th>
-        </tr>
+<table class="table">      
+        <tr class="row">
+                <th class="col-lg-2 col-md-2 col-xs-1"><?php echo out( xl('Title') ); ?></th>                
+                <th class="col-lg-2 col-md-2 col-xs-1"><?php echo out( xl('Active Alert') ); ?></th>                
+                <th class="col-lg-2 col-md-2 col-xs-1"><?php echo out( xl('Passive Alert') ); ?></th>                
+                <th class="col-lg-2 col-md-2 col-xs-1"><?php echo out( xl('Patient Reminder') ); ?></th>                
+                <th class="col-lg-4 col-md-4 col-xs-8"><?php echo out( xl('Access Control') ); ?> <span title='<?php echo out( xl('User is required to have this access control for Active Alerts and Passive Alerts') ); ?>'>?</span></th>
+                
+        </tr>        
         <?php $index = -1; ?>
         <?php foreach($viewBean->rules as $rule) {?>
         <?php $index++; ?>
-        <tr height="22">
-                <td><?php echo out( xl($rule->get_rule()) );?></td>
-				<td>&nbsp;</td>
+        <tr class="row" height="22">
+                <td class="col-lg-2 col-md-2 col-xs-1"><?php echo out( xl($rule->get_rule()) );?></td>
+				
 				<?php if ($rule->active_alert_flag() == "1"){  ?>
-                	<td><input type="checkbox" name="active[<?php echo $index ?>]" checked="yes"></td>
+                	<td class="col-lg-2 col-md-2 col-xs-1"><input type="checkbox" name="active[<?php echo $index ?>]" checked="yes"></td>
                 <?php }else {?>
-                	<td><input type="checkbox" name="active[<?php echo $index ?>]" ></td>
+                	<td class="col-lg-2 col-md-2 col-xs-1"><input type="checkbox" name="active[<?php echo $index ?>]" ></td>
 				<?php } ?>                
-				<td>&nbsp;</td>
+				
                 <?php if ($rule->passive_alert_flag() == "1"){ ?>
-                	<td><input type="checkbox" name="passive[<?php echo $index ?>]]" checked="yes"></td>
+                	<td class="col-lg-2 col-md-2 col-xs-1"><input type="checkbox" name="passive[<?php echo $index ?>]]" checked="yes"></td>
                 <?php }else {?>
-	                <td><input type="checkbox" name="passive[<?php echo $index ?>]]"></td>
+	                <td class="col-lg-2 col-md-2 col-xs-1"><input type="checkbox" name="passive[<?php echo $index ?>]]"></td>
 				<?php } ?>                
-				<td>&nbsp;</td>
+				
                 <?php if ($rule->patient_reminder_flag() == "1"){ ?>
-                	<td><input type="checkbox" name="reminder[<?php echo $index ?>]]" checked="yes"></td>
+                	<td class="col-lg-2 col-md-2 col-xs-1"><input type="checkbox" name="reminder[<?php echo $index ?>]]" checked="yes"></td>
                 <?php }else {?>
-	                <td><input type="checkbox" name="reminder[<?php echo $index ?>]]"></td>
+	                <td class="col-lg-2 col-md-2 col-xs-1"><input type="checkbox" name="reminder[<?php echo $index ?>]]"></td>
 				<?php } ?>               
-                 <td>&nbsp;</td>
-                 <td>
+                 
+                 <td class="col-lg-4 col-md-4 col-sm-8 col-xs-8">
                         <?php //Place the ACO selector here
                         $gacl_temp = new gacl_api(); 
                         $list_aco_objects = $gacl_temp->get_objects(NULL, 0, 'ACO');
                         foreach ($list_aco_objects as $key => $value) {
                           asort($list_aco_objects[$key]);
                         }
-                        echo "<select name='access_control[" . $index . "]'>";
+                        echo "<select class='form-control' name='access_control[" . $index . "]'>";
                         foreach ($list_aco_objects as $section => $array_acos) {
                           $aco_section_data = $gacl_temp->get_section_data($section, 'ACO');
                           $aco_section_title = $aco_section_data[3];
