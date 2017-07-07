@@ -2,7 +2,7 @@
 <span><?php echo xl("Add a Pharmacy");?></span></a><br><br>
 
 <div class="table-responive">
-<table class="table">
+<table class="table table-hover">
     <tr>
         <th><b><?php echo xl("Name");?></b></th>
         <th><b><?php echo xl("Address");?></b></th>
