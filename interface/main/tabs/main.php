@@ -52,13 +52,12 @@ function isEncounterLocked( encounterId ) {
 }
 var webroot_url="<?php echo $web_root; ?>";
 </script>
-<link rel="stylesheet" href="<?php echo $css_header;?>" type="text/css">
 <link rel="stylesheet" type="text/css" href="css/tabs.css"/>
 <link rel="stylesheet" type="text/css" href="css/menu.css"/>
 
 <?php
-include_js_library("knockout/knockout-3.4.0.js"); 
-include_js_library("jquery-min-2-2-0/index.js");
+    //Include Bootstrap and Knockout libraries
+    call_required_libraries(true,false,true,false);
 ?>
 
 <script type="text/javascript" src="js/custom_bindings.js"></script>
@@ -114,12 +113,22 @@ include_js_library("jquery-min-2-2-0/index.js");
                                                                   .',' . json_encode($userQuery['lname'])
                                                                   .',' . json_encode($_SESSION['authGroup']); ?>));
 </script>
-<div id="mainBox">
+<nav id="mainBox">
     <div id="dialogDiv"></div>
     <div class="body_top">
-        <span id="menu"  data-bind="template: {name: 'menu-template', data: application_data} "> </span>
-        <span id="userData" data-bind="template: {name: 'user-data-template', data:application_data} "></span>
-    </div>
+        <nav class="navbar navbar-default " style="margin-bottom: 0;">
+            <div class="container-fluid">
+                
+                <div class="collapse navbar-collapse" id="myNavbar">
+                    <div>
+                       <div id="menu"  data-bind="template: {name: 'menu-template', data: application_data} "> </div>                    
+                       <div id="userData" data-bind="template: {name: 'user-data-template', data:application_data} "></div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        </div>    
+    
     <div id="patientData" class="body_title" data-bind="template: {name: 'patient-data-template', data: application_data} "></div>
     <div class="body_title" data-bind="template: {name: 'tabs-controls', data: application_data} "> </div>
 
