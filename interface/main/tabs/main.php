@@ -57,13 +57,62 @@ var webroot_url="<?php echo $web_root; ?>";
 <link rel="stylesheet" type="text/css" href="css/menu.css"/>
 
 <?php
-include_js_library("knockout/knockout-3.4.0.js"); 
-include_js_library("jquery-min-2-2-0/index.js");
+/*  Include Bootstrap and Knockout Libraries    */
+    call_required_libraries(true,false,true,false);
 ?>
 
 <script type="text/javascript" src="js/custom_bindings.js"></script>
 
+<style>
 
+.dropdown-submenu {
+    position: relative;
+}
+
+.dropdown-submenu>.dropdown-menu {
+    top: 0;
+    left: 100%;
+    margin-top: -6px;
+    margin-left: -1px;
+    -webkit-border-radius: 0 6px 6px 6px;
+    -moz-border-radius: 0 6px 6px;
+    border-radius: 0 6px 6px 6px;
+}
+
+.dropdown-submenu:hover>.dropdown-menu {
+    display: block;
+}
+
+.dropdown-submenu>a:after {
+    display: block;
+    content: " ";
+    float: right;
+    width: 0;
+    height: 0;
+    border-color: transparent;
+    border-style: solid;
+    border-width: 5px 0 5px 5px;
+    border-left-color: #ccc;
+    margin-top: 5px;
+    margin-right: -10px;
+}
+
+.dropdown-submenu:hover>a:after {
+    border-left-color: #fff;
+}
+
+.dropdown-submenu.pull-left {
+    float: none;
+}
+
+.dropdown-submenu.pull-left>.dropdown-menu {
+    left: -100%;
+    margin-left: 10px;
+    -webkit-border-radius: 6px 0 6px 6px;
+    -moz-border-radius: 6px 0 6px 6px;
+    border-radius: 6px 0 6px 6px;
+}
+</style>
 
 <script type="text/javascript" src="js/user_data_view_model.js"></script>
 <script type="text/javascript" src="js/patient_data_view_model.js"></script>
@@ -116,16 +165,18 @@ include_js_library("jquery-min-2-2-0/index.js");
 </script>
 <div id="mainBox">
     <div id="dialogDiv"></div>
-    <div class="body_top">
+    <div>
         <span id="menu"  data-bind="template: {name: 'menu-template', data: application_data} "> </span>
         <span id="userData" data-bind="template: {name: 'user-data-template', data:application_data} "></span>
     </div>
+    
     <div id="patientData" class="body_title" data-bind="template: {name: 'patient-data-template', data: application_data} "></div>
     <div class="body_title" data-bind="template: {name: 'tabs-controls', data: application_data} "> </div>
 
     <div class="mainFrames">
         <div id="framesDisplay" data-bind="template: {name: 'tabs-frames', data: application_data}"> </div>
     </div>
+    
 </div>
 <script>
     $("#dialogDiv").hide();
