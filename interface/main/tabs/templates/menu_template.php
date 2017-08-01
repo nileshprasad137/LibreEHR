@@ -11,7 +11,37 @@
         color:white;
         background: black;
     }
+     
+    .dropdown-submenu {
+        position:relative;
+    }
+    .dropdown-submenu>.dropdown-menu {
+    top:0;left:100%;
+    margin-top:-6px;margin-left:-1px;
+    -webkit-border-radius:0 6px 6px 6px;-moz-border-radius:0 6px 6px 6px;border-radius:0 6px 6px 6px;
+    }
     
+    .dropdown-submenu > a:after {
+    /*
+    border-color: transparent transparent transparent #333;
+    border-style: solid;
+    border-width: 5px 0 5px 5px;
+    */
+    content: " ";
+    display: block;
+    float: right;  
+    height: 0;     
+    margin-right: -10px;
+    margin-top: 5px;
+    width: 0;
+    }
+    
+    .dropdown-submenu:hover>a:after {
+        border-left-color:#555;
+    }
+    .dropdown-menu>li>a{
+        cursor: pointer;
+    }   
 
 </style>
 <script type="text/html" id="menu-action">
@@ -29,7 +59,7 @@
     <a data-bind="text:label" class="dropdown-toggle " data-toggle="dropdown"> <b class="caret"></b></a>
     <ul class="dropdown-menu" data-bind="foreach: children">
         <!--<li data-bind="template: {name:header ? 'menu-header' : 'menu-action', data: $data }"></li>-->
-        <li data-bind="template: {name:header ? 'menu-header' : 'menu-action', data: $data }"></li>
+        <li class="dropdown dropdown-submenu" data-bind="template: {name:header ? 'menu-header' : 'menu-action', data: $data }"></li>
 
     </ul>
 </script>
