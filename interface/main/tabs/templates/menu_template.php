@@ -4,6 +4,7 @@
         cursor: pointer;
         font-size: 14px;
         font-weight : 600;
+        padding-right : 10px;
     }
     .nav>li>a:hover > ul{
         display:none;
@@ -38,7 +39,8 @@
     .dropdown-menu>li>a{
         cursor: pointer;
         padding : 5px;     
-        padding-left: 20px;   
+        padding-left: 20px;  
+        padding-bottom : 0px; 
         font-weight : 600;
     }   
     .dropdown-menu>li>a:hover{
@@ -46,7 +48,8 @@
         color: #31b0d5;        
     }
     .navbar-collapse{
-        padding-left : 0px;        
+        padding-left : 0px;  
+        padding-right : 20px;      
     }
     .navbar-nav>li>a{
         padding-top : 5px;
@@ -72,18 +75,10 @@
 
     </ul>
 </script>
-<script type="text/html" id="menu-template">
-    <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        </button>        
-    </div>    
+<script type="text/html" id="menu-template">    
 
     <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+    
         <ul class="nav navbar-nav" data-bind="foreach: menu">
           <li class="dropdown" data-bind="template: {name:header ? 'menu-header' : 'menu-action', data: $data }"></li>            
         </ul>
@@ -96,7 +91,7 @@
         </li>
         </ul>
         -->
-    </div>
+    
 </script>
 <script type="text/javascript">
 $(document).ready(function() {

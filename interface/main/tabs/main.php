@@ -116,9 +116,17 @@ var webroot_url="<?php echo $web_root; ?>";
 </script>
 <div id="mainBox">
     <div id="dialogDiv"></div>
-    <div>
-        <span id="menu"  data-bind="template: {name: 'menu-template', data: application_data} "> </span>
-        <!--<span id="userData" data-bind="template: {name: 'user-data-template', data:application_data} "></span>-->
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        </button>        
+    </div>    
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <div id="menu"  data-bind="template: {name: 'menu-template', data: application_data} "> </div>
+        <div id="userData" data-bind="template: {name: 'user-data-template', data:application_data} "></div>
     </div>
     
     <div id="patientData" class="body_title" data-bind="template: {name: 'patient-data-template', data: application_data} "></div>
