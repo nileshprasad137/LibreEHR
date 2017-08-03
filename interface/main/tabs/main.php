@@ -52,19 +52,14 @@ function isEncounterLocked( encounterId ) {
 }
 var webroot_url="<?php echo $web_root; ?>";
 </script>
-<link rel="stylesheet" href="<?php echo $css_header;?>" type="text/css">
 <link rel="stylesheet" type="text/css" href="css/tabs.css"/>
-<link rel="stylesheet" type="text/css" href="css/menu.css"/>
 
 <?php
-/*  Include Bootstrap and Knockout Libraries    */
+    /*  Include Bootstrap and Knockout Libraries    */
     call_required_libraries(true,false,true,false);
 ?>
 
 <script type="text/javascript" src="js/custom_bindings.js"></script>
-
-
-
 <script type="text/javascript" src="js/user_data_view_model.js"></script>
 <script type="text/javascript" src="js/patient_data_view_model.js"></script>
 <script type="text/javascript" src="js/tabs_view_model.js"></script>
