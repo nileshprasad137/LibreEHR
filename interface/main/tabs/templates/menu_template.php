@@ -1,8 +1,9 @@
 <style>
     .nav>li>a{
-        color: #31b0d5;
+        color: #1057c9;
         cursor: pointer;
         font-size: 14px;
+        font-weight : 600;
     }
     .nav>li>a:hover > ul{
         display:none;
@@ -16,24 +17,19 @@
         position:relative;
     }
     .dropdown-submenu>.dropdown-menu {
-    top:0;left:100%;
-    margin-top:-6px;margin-left:-1px;
-    -webkit-border-radius:0 6px 6px 6px;-moz-border-radius:0 6px 6px 6px;border-radius:0 6px 6px 6px;
+        top:0;left:100%;
+        margin-top:-6px;margin-left:-1px;
+        -webkit-border-radius:0 6px 6px 6px;-moz-border-radius:0 6px 6px 6px;border-radius:0 6px 6px 6px;
     }
     
-    .dropdown-submenu > a:after {
-    /*
-    border-color: transparent transparent transparent #333;
-    border-style: solid;
-    border-width: 5px 0 5px 5px;
-    */
-    content: " ";
-    display: block;
-    float: right;  
-    height: 0;     
-    margin-right: -10px;
-    margin-top: 5px;
-    width: 0;
+    .dropdown-submenu > a:after {    
+        content: " ";
+        display: block;
+        float: right;  
+        height: 0;     
+        margin-right: -10px;
+        margin-top: 5px;
+        width: 0;
     }
     
     .dropdown-submenu:hover>a:after {
@@ -41,8 +37,21 @@
     }
     .dropdown-menu>li>a{
         cursor: pointer;
+        padding : 5px;     
+        padding-left: 20px;   
+        font-weight : 600;
     }   
-
+    .dropdown-menu>li>a:hover{
+        text-decoration : underline;
+        color: #31b0d5;        
+    }
+    .navbar-collapse{
+        padding-left : 0px;        
+    }
+    .navbar-nav>li>a{
+        padding-top : 5px;
+        padding-bottom : 5px;
+    }
 </style>
 <script type="text/html" id="menu-action">
     <a data-bind="text:label,click: menuActionClick,css: {menuDisabled: ! enabled()}"></a>
@@ -71,13 +80,22 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         </button>        
-    </div>
+    </div>    
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav" data-bind="foreach: menu">
           <li class="dropdown" data-bind="template: {name:header ? 'menu-header' : 'menu-action', data: $data }"></li>            
         </ul>
+        <!--
+        <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown">
+            <a href="#">
+                <span class="glyphicon glyphicon-user" data-bind="template: {name: 'user-data-template', data:application_data}"></span>
+            </a>
+        </li>
+        </ul>
+        -->
     </div>
 </script>
 <script type="text/javascript">

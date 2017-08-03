@@ -118,7 +118,7 @@ var webroot_url="<?php echo $web_root; ?>";
     <div id="dialogDiv"></div>
     <div>
         <span id="menu"  data-bind="template: {name: 'menu-template', data: application_data} "> </span>
-        <span id="userData" data-bind="template: {name: 'user-data-template', data:application_data} "></span>
+        <!--<span id="userData" data-bind="template: {name: 'user-data-template', data:application_data} "></span>-->
     </div>
     
     <div id="patientData" class="body_title" data-bind="template: {name: 'patient-data-template', data: application_data} "></div>
