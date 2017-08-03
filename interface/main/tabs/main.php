@@ -112,14 +112,14 @@ var webroot_url="<?php echo $web_root; ?>";
 <div id="mainBox">
     <div id="dialogDiv"></div>
     <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
         <span class="sr-only">Toggle navigation</span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         </button>        
     </div>    
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+    <div class="collapse navbar-collapse" id="navbar-collapse">
         <div id="menu"  data-bind="template: {name: 'menu-template', data: application_data} "> </div>
         <div id="userData" data-bind="template: {name: 'user-data-template', data:application_data} "></div>
     </div>

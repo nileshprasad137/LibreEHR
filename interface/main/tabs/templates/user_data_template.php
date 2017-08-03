@@ -1,7 +1,7 @@
 <link rel="stylesheet" type="text/css" href=".../../css/userdata.css"/>
 <script type="text/html" id="user-data-template">    
     <!-- ko with: user -->        
-        <ul  class="nav navbar-nav navbar-right" title="<?php echo xla('Authorization group') ?>">                  
+        <ul id="userdata" class="nav navbar-nav navbar-right" title="<?php echo xla('Authorization group') ?>">                  
             <li class="dropdown" > 
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                 <span class="glyphicon glyphicon-user"></span>                
